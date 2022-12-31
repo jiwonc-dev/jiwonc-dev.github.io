@@ -1,0 +1,175 @@
+# big-O
+
+## addition & multiplication
+
+### addition
+
+```
+for (int a : arrA) {
+    print(a);
+}
+
+for (int b : arrB) {
+    print(b);
+}
+```
+execution time : **O(A+B)**
+
+### multiplication
+
+```
+for (int a : arrA) {
+    for (int b : arrB) {
+        print( a + "," + b);
+    }
+}
+```
+execution time : __O(A*B)__      
+   
+## insert operation in ArrayList(dynamic array)
+#### if the array is full
+execution time : **O(N)**
+
+> To insert a new element, create a new array of size 2N and copy all the existing elements (N elements) into the new array.
+
+#### in most case
+execution time : **O(1)**
+
+> there is space available in the array.
+
+#### payback time
+necessary time : O(2X) -> payback time **O(1)**     
+   
+## binary search & balanced binary search tree
+#### case to search
+execution time : **O(logN)**
+> At each step, the number of nodes to be searched is reduced by half.   
+   
+## A recursive function made up of multiple calls
+
+```
+int f(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return f(n-1) + f(n-1);
+}
+```
+execution time : **O(2<sup>N</sup>)**
+> **O(branch<sup>depth</sup> )**
+
+## Examples
+### case 1
+```
+void foo(int[] array) {
+    int sum = 0;
+    int product = 1;
+    for (int i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    for (int i = 0; i < array.length; i++) {
+        product *= array[i];
+    }
+    System.out.println(sum + ", " + product);
+}
+```
+big-O time : **O(N)**
+   
+### case 2
+```
+void printPairs(int[] array) {
+    for (int i = 0; i < array.length; i++) {
+        for (int j = 0; j < array.length; j++) {
+            System.out.println(array[i] + "," + array[j]);
+        }
+    }
+}
+```
+big-O time : **O(N<sup>2</sup>)**
+
+### case 3
+```
+void printUnorderedPairs(int[] array) {
+    for (int i = 0; i < array.length; i++) {
+        for (int j = i+1; j < array.length; j++) {
+            System.out.println(array[i] + "," + array[j]);
+        }
+    }
+}
+```
+big-O time : **O(N<sup>2</sup>)**
+> The total number of iterations of the second loop is the sum of the numbers from 1 to N-1. The sum is N(N-1)/2.
+
+### case 4
+```
+void printUnorderedPairs(int[] arrayA, int[] arrayB) {
+    for (int i = 0; i < arrayA.length; i++) {
+        for (int j = 0; j < arrayB.length; j++) {
+            if (arrayA[i] < arrayB[j]) { 
+                System.out.println(array[i] + "," + array[j]);
+            }
+        }
+    }
+}
+```
+big-O time : **O(ab)** (a : arrayA.length, b : arrayB.length)
+> if-statement is O(1). have to consider the size of both arrays.   
+
+### case 5
+```
+void printUnorderedPairs(int[] arrayA, int[] arrayB) {
+    for (int i = 0; i < arrayA.length; i++) {
+        for (int j = 0; j < arrayB.length; j++) {
+            for (int k = 0; k < 100000; k++) { 
+                System.out.println(array[i] + "," + array[j]);
+            }
+        }
+    }
+}
+```
+big-O time : **O(ab)** (a : arrayA.length, b : arrayB.length)
+> 100,000 is considered constant term.
+
+### case 6
+```
+void reverse(int[] array) {
+    for (int i = 0; i < arrayA.length; i++) {
+        int other = array.length - i - 1;
+        int temp = array[i];
+        array[i] = array[other];
+        array[other] = temp;
+    }
+}
+```
+big-O time : **O(N)**
+> Half the iterations do not affect the big-O time.
+
+### case 7
+- O(N+P) _(P<N/2)_   
+is equal to **O(N)**
+> If P < N<sup>2</sup>, dominent term is N. 
+- O(2N)   
+is equal to **O(N)**
+> Constant term can be ignored. 
+- O(N+logN)   
+is equal to **O(N)**
+> Dominent term is N. 
+- O(N+M)   
+is _**not**_ equal to **O(N)**
+> Since there is no association between N and M, both variables must be indicated.
+
+### case 8
+```
+An array of several strings is given.
+Each string is sorted first, then the entire string is sorted again alphabetically.
+- s : length of longest string
+- a : length of array
+```
+big-O time : __O(a*s(loga+logs))__
+
+> O(slogs) : time to sort each string   
+O(a*slogs) : all _a_ strings must be sorted   
+O(s) : time to compare strings   
+O(aloga) : total time of comparisons
+
+
