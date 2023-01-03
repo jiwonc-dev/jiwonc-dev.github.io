@@ -37,8 +37,8 @@ execution time : **O(1)**
 
 > there is space available in the array.
 
-#### payback time
-necessary time : O(2X) -> payback time **O(1)**     
+#### amortized time
+necessary time : O(2X) -> amortized time **O(1)**     
    
 ## binary search & balanced binary search tree
 #### case to search
