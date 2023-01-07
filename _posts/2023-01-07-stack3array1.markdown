@@ -1,0 +1,223 @@
+---
+title:  "Implement three Stacks using one array"
+excerpt: "implemented to dynamically assign three stacks to one array."
+
+categories:
+  - algorithm
+tags:
+  - [Algorithm]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-01-07
+---
+
+refer to :    
+![3stacks](https://i.stack.imgur.com/Xlh3e.png)
+
+my GO code : 
+
+```
+package main
+import "log"
+
+const ARRAY_SIZE = 10
+const ARRAY_HALF_SIZE = int(float32(ARRAY_SIZE) * 0.5)
+
+type StackNode struct {
+    next *StackNode
+    data int
+}
+
+type Stack struct {
+    top *StackNode
+    size int
+    topIndex int // array index
+}
+
+func (stack *Stack) pop() int {
+    if stack.top != nil {
+        value := stack.top.data
+        stack.top = stack.top.next
+        stack.size--
+        return value
+    }
+    return 0
+}
+
+func (stack *Stack) push(item *StackNode) {
+    if stack.top != nil {
+        stack.top.next = item
+    }
+    stack.top = item
+    stack.size++
+}
+
+func (stack *Stack) peek() int {
+    if stack.top != nil {
+        return stack.top.data
+    }
+    return 0
+}
+
+func (stack *Stack) isEmpty() bool {
+    return stack.top == nil
+}
+
+type QueueNode struct {
+    next *QueueNode
+    data int
+}
+
+type Queue struct {
+    first *QueueNode
+    last *QueueNode
+}
+
+func (q *Queue) add(item *QueueNode) {
+    if q.first == nil && q.last == nil {
+        q.first = item
+    } else {
+        q.last.next = item
+    }
+    q.last = item
+}
+
+func (q *Queue) remove() int {
+    if q.first != nil {
+        value := q.first.data
+        q.first = q.first.next
+        return value
+    }
+    return 0
+}
+
+func (q *Queue) peek() int {
+    if q.first != nil {
+        return q.first.data
+    }
+    return 0
+}
+
+func (q *Queue) isEmpty() bool {
+    return q.first == nil
+}
+
+func main() {
+    // initialize
+    dataMap := map[int]*StackNode{}
+    for i :=0; i < ARRAY_SIZE; i++ {
+        dataMap[i] = nil
+    }
+    stack1 := &Stack{topIndex : 0}
+    stack2 := &Stack{topIndex : ARRAY_SIZE-1}
+    stack3 := &Stack{topIndex : ARRAY_HALF_SIZE}
+    
+    dynamicStackPush(dataMap, stack1, createNode(1))
+    dynamicStackPush(dataMap, stack1, createNode(11))
+
+    dynamicStackPush(dataMap, stack2, createNode(2))
+    dynamicStackPush(dataMap, stack2, createNode(22))
+    dynamicStackPush(dataMap, stack2, createNode(222))
+    dynamicStackPush(dataMap, stack2, createNode(2222))
+    
+    dynamicStackPush(dataMap, stack3, createNode(3))
+    dynamicStackPush(dataMap, stack3, createNode(33))
+    dynamicStackPush(dataMap, stack3, createNode(333))
+    
+    printDataMap(dataMap)
+}
+
+func createNode(data int) *StackNode {
+    return &StackNode{data : data}
+}
+
+func findNilIndexFromFront(dataMap map[int]*StackNode) int {
+    for i := 0; i < ARRAY_HALF_SIZE; i++ {
+        if dataMap[i] == nil {
+            return i
+        }
+    }
+    return -1
+}
+
+func findNilIndexFromMiddle(dataMap map[int]*StackNode, curIndex int) int {
+    for i := curIndex; i < ARRAY_SIZE; i++ {
+        if dataMap[i] == nil {
+            return i
+        }
+    }
+    return -1
+}
+
+func findNilIndexFromBack(dataMap map[int]*StackNode) int {
+    for i := ARRAY_SIZE; i > ARRAY_HALF_SIZE; i-- {
+        if dataMap[i] == nil {
+            return i
+        }
+    }
+    return -1
+}
+
+func moveArrayValue(dataMap map[int]*StackNode, startIndex, endIndex, moveCount int) {
+    for i := startIndex; i < endIndex; i++ {
+        dataMap[i-moveCount] = dataMap[i]
+        dataMap[i] = nil
+    }
+}
+
+func dynamicStackPush(dataMap map[int]*StackNode, stack *Stack, item *StackNode) {
+    i := -1
+    if stack.topIndex == 0 {
+        // stack1 (using 0~array half size(max))
+        i = findNilIndexFromFront(dataMap)
+    } else if stack.topIndex == ARRAY_SIZE - 1 {
+        // stack2 (using array size - 1 ~ array half size(max))
+        i = findNilIndexFromBack(dataMap)
+    } else {
+        // stack3
+        i = findNilIndexFromMiddle(dataMap, stack.topIndex)
+    }
+    if i >= 0 {
+        dataMap[i] = item
+        stack.push(item)
+        return
+    } else if stack.topIndex != 0 && stack.topIndex != ARRAY_SIZE - 1 {
+        i = findNilIndexFromFront(dataMap)
+        if i > 0 {
+            newTopIndex := int(float32(i + stack.topIndex) * 0.5)
+            moveArrayValue(dataMap, stack.topIndex, stack.topIndex + stack.size, stack.topIndex - newTopIndex )
+            stack.topIndex = newTopIndex
+            dataMap[stack.topIndex + stack.size] = item
+            stack.push(item)
+            return
+        }
+    }
+    
+    log.Printf( "Stack is Full" )
+}
+
+func printDataMap(dataMap map[int]*StackNode) {
+    for i :=0; i < ARRAY_SIZE; i++ {
+        if dataMap[i] != nil {
+            log.Printf( "[%d] %d", i, dataMap[i].data )
+        }
+    }
+}
+```
+
+result :
+```
+[0] 1
+[1] 11
+[3] 3
+[4] 33
+[5] 333
+[7] 2222
+[8] 222
+[9] 22
+
+```
+
+execution time : O(N)
