@@ -13,10 +13,11 @@ toc_sticky: true
 date: 2023-01-07
 ---
 
-refer to :    
+### concept  
 ![3stacks](https://i.stack.imgur.com/Xlh3e.png)
+Link : [stackoverflow](https://stackoverflow.com/questions/4770627/how-to-implement-3-stacks-with-one-array)
 
-my GO code : 
+### my GO code
 
 ```
 package main
@@ -207,7 +208,7 @@ func printDataMap(dataMap map[int]*StackNode) {
 }
 ```
 
-result :
+### result
 ```
 [0] 1
 [1] 11
@@ -220,4 +221,5 @@ result :
 
 ```
 
-execution time : O(N)
+### execution time
+O(N)
