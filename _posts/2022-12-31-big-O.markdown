@@ -3,7 +3,7 @@ title:  "Big-O"
 excerpt: ""
 
 categories:
-  - Algorithm
+  - algorithm
 tags:
   - [Algorithm]
 

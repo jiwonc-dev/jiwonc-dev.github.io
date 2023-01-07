@@ -3,7 +3,7 @@ title:  "Rotate90˚"
 excerpt: ""
 
 categories:
-  - Algorithm
+  - algorithm
 tags:
   - [Algorithm, Go]
 

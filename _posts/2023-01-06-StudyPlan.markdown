@@ -3,7 +3,7 @@ title:  "Study Plan"
 excerpt: ""
 
 categories:
-  - Self-Development
+  - self-development
 tags:
   - []
 
