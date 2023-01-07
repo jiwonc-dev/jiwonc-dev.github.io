@@ -52,14 +52,15 @@ execution time : **O(1)**
 > there is space available in the array.
 
 #### amortized time
-necessary time : O(2X) -> amortized time **O(1)**     
-   
-## binary search & balanced binary search tree
+necessary time : O(2X) -> amortized time **O(1)**
+ 
+### binary search & balanced binary search tree
+
 #### case to search
 execution time : **O(logN)**
 > At each step, the number of nodes to be searched is reduced by half.   
    
-## A recursive function made up of multiple calls
+### A recursive function made up of multiple calls
 
 ```
 int f(int n) {
@@ -72,8 +73,8 @@ int f(int n) {
 execution time : **O(2<sup>N</sup>)**
 > **O(branch<sup>depth</sup> )**
 
-## Examples
-### case 1
+### Examples
+#### case 1
 ```
 void foo(int[] array) {
     int sum = 0;
@@ -89,7 +90,7 @@ void foo(int[] array) {
 ```
 big-O time : **O(N)**
    
-### case 2
+#### case 2
 ```
 void printPairs(int[] array) {
     for (int i = 0; i < array.length; i++) {
@@ -101,7 +102,7 @@ void printPairs(int[] array) {
 ```
 big-O time : **O(N<sup>2</sup>)**
 
-### case 3
+#### case 3
 ```
 void printUnorderedPairs(int[] array) {
     for (int i = 0; i < array.length; i++) {
@@ -114,7 +115,7 @@ void printUnorderedPairs(int[] array) {
 big-O time : **O(N<sup>2</sup>)**
 > The total number of iterations of the second loop is the sum of the numbers from 1 to N-1. The sum is N(N-1)/2.
 
-### case 4
+#### case 4
 ```
 void printUnorderedPairs(int[] arrayA, int[] arrayB) {
     for (int i = 0; i < arrayA.length; i++) {
@@ -129,7 +130,7 @@ void printUnorderedPairs(int[] arrayA, int[] arrayB) {
 big-O time : **O(ab)** (a : arrayA.length, b : arrayB.length)
 > if-statement is O(1). have to consider the size of both arrays.   
 
-### case 5
+#### case 5
 ```
 void printUnorderedPairs(int[] arrayA, int[] arrayB) {
     for (int i = 0; i < arrayA.length; i++) {
@@ -144,7 +145,7 @@ void printUnorderedPairs(int[] arrayA, int[] arrayB) {
 big-O time : **O(ab)** (a : arrayA.length, b : arrayB.length)
 > 100,000 is considered constant term.
 
-### case 6
+#### case 6
 ```
 void reverse(int[] array) {
     for (int i = 0; i < arrayA.length; i++) {
@@ -158,7 +159,7 @@ void reverse(int[] array) {
 big-O time : **O(N)**
 > Half the iterations do not affect the big-O time.
 
-### case 7
+#### case 7
 - O(N+P) _(P<N/2)_   
 is equal to **O(N)**
 > If P < N<sup>2</sup>, dominent term is N. 
@@ -172,7 +173,7 @@ is equal to **O(N)**
 is _**not**_ equal to **O(N)**
 > Since there is no association between N and M, both variables must be indicated.
 
-### case 8
+#### case 8
 ```
 An array of several strings is given.
 Each string is sorted first, then the entire string is sorted again alphabetically.
@@ -186,7 +187,7 @@ O(a*slogs) : all _a_ strings must be sorted
 O(s) : time to compare strings   
 O(aloga) : total time of comparisons
 
-### case 9
+#### case 9
 ```
 void sum(Node node) {
     if (node == null) {
@@ -198,7 +199,7 @@ void sum(Node node) {
 big-O time : **O(N)**
 > It visits all nodes.
 
-### case 10
+#### case 10
 ```
 void isPrime(int n) {
     for (int x = 2; x * x <= n; x++) {
@@ -212,7 +213,7 @@ void isPrime(int n) {
 big-O time : **O($$\sqrt{N}$$)**
 > It stops when x becomes $$\sqrt{n}$$.
 
-### case 11
+#### case 11
 ```
 int factorial(int n) {
     if (n < 0) {
