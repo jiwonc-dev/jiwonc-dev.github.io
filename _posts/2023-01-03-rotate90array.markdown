@@ -14,8 +14,6 @@ date: 2023-01-03
 last_modified_at: 2023-01-07
 ---
 
-# rotate90
-
 ### 5x5 matrix  
 
 | | | | | |

@@ -13,7 +13,6 @@ toc_sticky: true
 date: 2023-01-06
 last_modified_at: 2023-01-07
 ---
-# Study Plan
 
 - [x] big-O
 - [x] BUD
