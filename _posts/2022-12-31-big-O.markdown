@@ -1,3 +1,19 @@
+---
+title:  "Big-O"
+excerpt: ""
+
+categories:
+  - Algorithm
+tags:
+  - [Algorithm]
+
+toc: true
+toc_sticky: true
+ 
+date: 2022-12-31
+last_modified_at: 2023-01-07
+---
+
 # big-O
 
 ## addition & multiplication
