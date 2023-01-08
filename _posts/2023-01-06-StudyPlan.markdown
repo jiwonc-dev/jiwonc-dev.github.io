@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2023-01-06
-last_modified_at: 2023-01-07
+last_modified_at: 2023-01-08
 ---
 
 - [x] big-O
@@ -19,7 +19,7 @@ last_modified_at: 2023-01-07
 
 - [x] Array and String
 - [x] Linked List
-- [ ] Stack & Queue
+- [x] Stack & Queue
 - [ ] Tree & Graph
 
 - [ ] Bit
