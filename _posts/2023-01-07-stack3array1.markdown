@@ -37,33 +37,10 @@ type Stack struct {
     topIndex int // array index
 }
 
-func (stack *Stack) pop() int {
-    if stack.top != nil {
-        value := stack.top.data
-        stack.top = stack.top.next
-        stack.size--
-        return value
-    }
-    return 0
-}
-
 func (stack *Stack) push(item *StackNode) {
-    if stack.top != nil {
-        stack.top.next = item
-    }
+    item.next = stack.top
     stack.top = item
     stack.size++
-}
-
-func (stack *Stack) peek() int {
-    if stack.top != nil {
-        return stack.top.data
-    }
-    return 0
-}
-
-func (stack *Stack) isEmpty() bool {
-    return stack.top == nil
 }
 
 func main() {
