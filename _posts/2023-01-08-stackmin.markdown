@@ -1,0 +1,112 @@
+---
+title:  "Implement Stack.Min() in O(1) time"
+excerpt: "implement stack with min() function"
+
+categories:
+  - algorithm
+tags:
+  - [Algorithm]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-01-08
+---
+
+### concept  
+Link : [geeksforgeeks](https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/)
+
+### my GO code
+
+```
+package main
+import "log"
+
+type StackNode struct {
+    next *StackNode
+    data int
+}
+
+type Stack struct {
+    top *StackNode
+    minVal int
+}
+
+func (stack *Stack) pop() int {
+    if stack.top != nil {
+        value := stack.top.data
+        if value < stack.minVal {
+            oldVal := value
+            value = stack.minVal
+            stack.minVal = 2 * stack.minVal - oldVal
+        }
+        stack.top = stack.top.next
+        return value
+    }
+    return 0
+}
+
+func (stack *Stack) push(item *StackNode) {
+    item.next = stack.top
+    if stack.top == nil {
+        stack.minVal = item.data
+    }
+    stack.top = item
+    
+    if item.data < stack.minVal {
+        oldMinVal := stack.minVal
+        stack.minVal = item.data
+        item.data = 2 * item.data - oldMinVal
+    }
+}
+
+func (stack *Stack) peek() int {
+    if stack.top != nil {
+        return stack.top.data
+    }
+    return 0
+}
+
+func (stack *Stack) isEmpty() bool {
+    return stack.top == nil
+}
+
+
+func (stack *Stack) min() int {
+	if stack.isEmpty() {
+	    log.Printf( "error : stack is empty" )
+		return -1
+	}
+    
+    return stack.minVal
+}
+
+func main() {
+    stack := &Stack{}
+	stack.push(&StackNode{data : 8})
+	stack.push(&StackNode{data : 6})
+	stack.push(&StackNode{data : 7})
+	stack.push(&StackNode{data : 4})
+	stack.push(&StackNode{data : 5})
+	stack.push(&StackNode{data : 2})
+	stack.push(&StackNode{data : 3})
+	stack.push(&StackNode{data : 1})
+	log.Printf( "min : %d", stack.min())
+	log.Printf( "=========")
+    stack.pop()
+	log.Printf( "min : %d", stack.min())
+
+}
+```
+
+### result
+```
+min : 1
+=========
+min : 2
+
+
+```
+
+### execution time
+O(1)
