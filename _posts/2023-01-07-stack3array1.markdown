@@ -66,45 +66,6 @@ func (stack *Stack) isEmpty() bool {
     return stack.top == nil
 }
 
-type QueueNode struct {
-    next *QueueNode
-    data int
-}
-
-type Queue struct {
-    first *QueueNode
-    last *QueueNode
-}
-
-func (q *Queue) add(item *QueueNode) {
-    if q.first == nil && q.last == nil {
-        q.first = item
-    } else {
-        q.last.next = item
-    }
-    q.last = item
-}
-
-func (q *Queue) remove() int {
-    if q.first != nil {
-        value := q.first.data
-        q.first = q.first.next
-        return value
-    }
-    return 0
-}
-
-func (q *Queue) peek() int {
-    if q.first != nil {
-        return q.first.data
-    }
-    return 0
-}
-
-func (q *Queue) isEmpty() bool {
-    return q.first == nil
-}
-
 func main() {
     // initialize
     dataMap := map[int]*StackNode{}
