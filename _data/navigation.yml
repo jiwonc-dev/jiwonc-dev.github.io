@@ -2,6 +2,8 @@
 main:
   - title: "Algorithm"
     url: /algorithm
+  - title: "Data Structure"
+    url: /datastructure
   - title: "Self-Development"
     url: /self-development
   # - title: "Sample Posts"
