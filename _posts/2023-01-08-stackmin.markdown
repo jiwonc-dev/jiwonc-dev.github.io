@@ -93,7 +93,7 @@ func main() {
 	stack.push(&StackNode{data : 1})
 	log.Printf( "min : %d", stack.min())
 	log.Printf( "=========")
-    stack.pop()
+    	stack.pop()
 	log.Printf( "min : %d", stack.min())
 
 }
