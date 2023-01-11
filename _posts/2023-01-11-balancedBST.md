@@ -3,20 +3,17 @@ title:  "Implement balanced binary search tree"
 excerpt: "implemented a binary search tree with minimum height using data in ascending arrays that are integers and have no duplicate values."
 
 categories:
-  - algorithm
-tags:
-  - [Algorithm]
+  - datastructure
 
 toc: true
 toc_sticky: true
  
-date: 2023-01-10
+date: 2023-01-11
 ---
 
 ## GO code
 
 ```
-
 package main
 import "fmt"
 
@@ -57,7 +54,7 @@ func insertNode(node *TreeNode, data int) *TreeNode {
         node = &TreeNode{data : data, height : 1 }
         return node
     } else if node.data < data {
-        // repeat until find the leef node
+        // recurse until find the leef node
         node.right = insertNode(node.right, data)
     }
     node.updateHeight()
@@ -116,3 +113,21 @@ func main() {
     }
     myAVL.Traverse()
 }
+```
+
+## output
+```
+1
+2
+5
+7
+9
+10
+11
+14
+20
+```
+
+## big-O
+- insertion : O(log n)   
+- traverse : O(n)
