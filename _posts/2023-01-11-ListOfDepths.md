@@ -150,4 +150,4 @@ depth : 3 { H, I, J, K, L, M, N, O }
 
 ## big-O
 - insertion : O(log n)
-- print : O(n)
+- print : O(n)   
