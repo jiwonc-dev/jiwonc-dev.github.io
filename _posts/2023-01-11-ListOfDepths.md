@@ -3,7 +3,7 @@ title:  "List of depths"
 excerpt: "An algorithm that links nodes at the same depth to a linked list when a binary tree is given"
 
 categories:
-  - datastructure
+  - algorithm
 
 toc: true
 toc_sticky: true
