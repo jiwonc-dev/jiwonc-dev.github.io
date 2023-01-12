@@ -68,8 +68,8 @@ func (tree *Tree)IsSubTree(targetTree *Tree) bool {
 
 func main() {
     tree1, tree2, tree3 := createTestTrees()
-    fmt.Printf( "Is tree2 is subtree of tree1? %t\n", tree2.IsSubTree(tree1) )
-    fmt.Printf( "Is tree3 is subtree of tree1? %t\n", tree3.IsSubTree(tree1) )
+    fmt.Printf( "Is tree2 a subtree of tree1? %t\n", tree2.IsSubTree(tree1) )
+    fmt.Printf( "Is tree3 a subtree of tree1? %t\n", tree3.IsSubTree(tree1) )
 }
 
 func createTestTrees() (*Tree,*Tree, *Tree) {
@@ -138,8 +138,8 @@ func isDifferent(a, b *Node) bool {
 
 ## output
 ```
-Is tree2 is subtree of tree1? true
-Is tree3 is subtree of tree1? false
+Is tree2 a subtree of tree1? true
+Is tree3 a subtree of tree1? false
 ```
 
 ## big-O time
