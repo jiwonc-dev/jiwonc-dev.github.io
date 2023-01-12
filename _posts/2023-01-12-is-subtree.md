@@ -39,10 +39,10 @@ import "fmt"
 */
 
 type Node struct {
-	data   int
+    data   int
 	
-	// child
-	left *Node
+    // child
+    left *Node
     right *Node
 }
 
@@ -55,7 +55,7 @@ func (node *Node)setChildToRight(child *Node) {
 }
 
 type Tree struct {
-	root *Node
+    root *Node
 }
 
 func (tree *Tree)IsSubTree(targetTree *Tree) bool {
@@ -91,7 +91,7 @@ func createTestTrees() (*Tree,*Tree, *Tree) {
     tree3.root = createNode(12)
     tree3.root.setChildToLeft(createNode(11))
 
-	return tree1, tree2, tree3
+    return tree1, tree2, tree3
 }
 
 func createNode(data int) *Node {
@@ -140,7 +140,6 @@ func isDifferent(a, b *Node) bool {
 ```
 Is tree2 is subtree of tree1? true
 Is tree3 is subtree of tree1? false
-
 ```
 
 ## big-O time
