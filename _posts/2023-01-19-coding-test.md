@@ -13,13 +13,14 @@ date: 2023-01-19
 
 ![image](https://i.imgur.com/FTkF3cp.jpg)
 
-### Analyze requirements   
+### 1. Analyze requirements   
 > Check constraints, size, what results user want, etc.
 
 
 
-### Describe how I plan plan to implement   
+### 2. Describe how I plan to implement   
 > Explain what data structures and algorithms to use with reason.
 
 
-### Explain why I'm struggling when I get stuck at some point.
+### 3. Explain why I'm struggling when I get stuck at some point.
+> Let the interviewer know what's going on in my head.
