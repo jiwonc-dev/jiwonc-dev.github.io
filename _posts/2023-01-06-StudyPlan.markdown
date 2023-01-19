@@ -20,15 +20,15 @@ last_modified_at: 2023-01-08
 - [x] Array and String
 - [x] Linked List
 - [x] Stack & Queue
-- [ ] Tree & Graph
+- [x] Tree & Graph
 
-- [ ] Bit
-- [ ] Math & Logic
-- [ ] OOP
-- [ ] Recursive & Dynamic Programming
-- [ ] System Design & Scalability
-- [ ] Sort & Search
-- [ ] Testing
+- [x] Bit
+- [x] Math & Logic
+- [x] OOP
+- [x] Recursive & Dynamic Programming
+- [x] System Design & Scalability
+- [x] Sort & Search
+- [x] Testing
 
 - [ ] C & C++
 - [ ] Database
