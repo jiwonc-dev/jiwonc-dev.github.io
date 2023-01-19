@@ -11,7 +11,7 @@ toc_sticky: true
 date: 2023-01-19
 ---
 
-![image]("![ff]("https://imgur.com/FTkF3cp")")
+![image]("https://imgur.com/FTkF3cp")
 
 ### Analyze requirements   
 > Check constraints, size, what results user want, etc.
