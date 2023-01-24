@@ -10,7 +10,7 @@ toc_sticky: true
  
 date: 2023-01-24
 ---
-From : [sujinlee.me]("https://sujinlee.me/professional-github/")
+From : [sujinlee.me](https://sujinlee.me/professional-github/)
 
 
 ## GitHub Activity History   
