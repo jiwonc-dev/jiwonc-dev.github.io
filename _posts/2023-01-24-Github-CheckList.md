@@ -25,7 +25,7 @@ From : [sujinlee.me](https://sujinlee.me/professional-github/)
 
 ## Project   
 - [ ] It was written correctly and consistently in accordance with the commit message creation rules.
-- [ ] He has a history of contributing by forking other people's repository.
+- [ ] I have a history of contributing by forking other people's repository.
 - [ ] The project name and detailed description were written professionally.
 - [ ] All of the most recently completed projects have detailed descriptions in the README.md file.
 - [ ] Add a star to the repository of interest.
